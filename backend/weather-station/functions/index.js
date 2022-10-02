@@ -7,7 +7,7 @@ admin.initializeApp();
 
 const app = express();
 const db = admin.firestore();
-const weatherCollection = "weather";
+const weatherCollection = "weather-points";
 
 app.use(cors);
 
@@ -20,9 +20,18 @@ app.post("/api/weather", async (req, res) => {
   console.log("1");
   try {
     const weatherData = {
-      humidity: req.body["humidity"],
-      temperature: req.body["temperature"],
-      wind: req.body["wind"],
+      humidity: {
+        value: req.body["humidity"],
+        unit: "%",
+      },
+      temperature: {
+        value: req.body["temperature"],
+        unit: "°C",
+      },
+      wind: {
+        value: req.body["wind"],
+        unit: "m/s",
+      },
       date: new Date(),
     };
     console.log("2");
@@ -36,6 +45,5 @@ app.post("/api/weather", async (req, res) => {
     console.log("5");
   }
 });
-
 
 exports.app = functions.https.onRequest(app);
