@@ -4,12 +4,12 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis,
   Tooltip, CartesianGrid } from 'recharts';
 
 
-function TemperatureChart(props) {
-  const temperatureRange = [0, Math.max(...props.data.map(o => parseInt(o.temperature))) + 3];
+function HumidityChart(props) {
+  const humidityRange = [0, Math.max(...props.data.map(o => parseInt(o.humidity))) + 3];
   return (
     <Row>
       <Col>
-      <h2 className="display-6">Temperature</h2>
+      <h2 className="display-6">Humidity</h2>
       <div className="line-chart-wrapper">
       <ResponsiveContainer width='100%' height={400}>
         <LineChart
@@ -18,7 +18,7 @@ function TemperatureChart(props) {
         >
           <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
           <XAxis dataKey="date" label={{value: "hours", dy: 32}} angle={-35} textAnchor="end"/>
-          <YAxis label={{ value: 'temperature [°C]', angle: -90,  dx: -10}} domain={temperatureRange} scale="linear"/>
+          <YAxis label={{ value: 'humidity [%]', angle: -90,  dx: -10}} domain={humidityRange} scale="linear"/>
           <Tooltip
             wrapperStyle={{
               borderColor: 'white',
@@ -27,7 +27,7 @@ function TemperatureChart(props) {
             contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
             labelStyle={{ fontWeight: 'bold', color: '#666666' }}
           />
-          <Line type="monotone" dataKey="temperature" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="humidity" stroke="#8884d8" />
         </LineChart>
         </ResponsiveContainer>
       </div>
@@ -36,4 +36,4 @@ function TemperatureChart(props) {
   );
 }
   
-export default TemperatureChart;
+export default HumidityChart;

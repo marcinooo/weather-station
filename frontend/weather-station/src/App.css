@@ -3,3 +3,17 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+.line-chart-wrapper {
+  margin-top: 2px;
+  margin-bottom: 12px;
+}
+
+.stationInfoBox {
+  background-color: rgb(241, 241, 241);
+  padding: 15px;
+  margin: 3px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
