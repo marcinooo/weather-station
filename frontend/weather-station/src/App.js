@@ -8,7 +8,7 @@ import HumidityChart from './components/HumidityChart';
 import WindChart from './components/WindChart';
 import StationInfoBox from './components/StationInfoBox';
 import { db } from './firebase';
-import { collection, getDocs, query, orderBy, limit, connectFirestoreEmulator } from "firebase/firestore"; 
+import { collection, getDocs, query, orderBy, limit } from "firebase/firestore"; 
 import './App.css';
 
 
